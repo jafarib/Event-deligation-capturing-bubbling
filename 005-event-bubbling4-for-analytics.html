@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        padding: 20px;
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">
+      div1
+      <div class="div2">
+        div2
+        <div class="div3">
+          div3
+          <div class="div4">div4</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var divs = document.querySelectorAll("div");
+      console.log(divs);
+      divs.forEach(function (div, index) {
+        div.addEventListener("click", function (e) {
+          // some times we want to get some analytics  for all of out element and if we use stop propagation this can not say to his parent tath  I am clicked and we should use another method
+            // in this specific problem we can use method that name is event target and this exaclty pass this specific event to thair parent and by this way we can get click event in exact element and use som adantages of using even bubling
+          //  e.stopPropagation();
+
+          //console.log(e);
+            
+          e.target.style.backgroundColor = "yellow";
+
+          console.log(`Div ${index + 1} is clicked!`);
+        });
+      });
+    </script>
+  </body>
+</html>

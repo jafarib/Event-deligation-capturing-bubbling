@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        padding: 20px;
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">
+      div1
+      <div class="div2">
+        div2
+        <div class="div3">
+          div3
+          <div class="div4">div4</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var divs = document.querySelectorAll("div");
+      console.log(divs);
+      divs.forEach(function (div, index) {
+        div.addEventListener("click", function (e) {
+          e.stopPropagation();// by this fuvntion we can prevent to event buble and use exact event
+          div.style.backgroundColor = "yellow";
+
+          console.log(`Div ${index + 1} is clicked!`);
+          //   console.log(e);
+        });
+      });
+    </script>
+  </body>
+</html>
